@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* styling for navbar */
+.navbar{
+    background-color: lightblue;
+}
+.nav-list{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    list-style: none;
+    padding: 1rem;
+}
+/* container */
+.expenseContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;    
+}
+.input{
+    width: 23%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid black;
+    margin: 2rem;
+    border-radius: 5%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: inset;
+    font-size: 1.5rem;
+    margin: 2rem;
+}
+.record{
+    display: flex;
+    gap: 15rem;
+}
+table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+th{
+    border: 2px solid black;
+    padding: 0.5rem;
+    width: 8rem;
+}
+td{
+    padding: 0.5rem;
+    width: 8rem;
+    margin: 1rem;
+}
+.income{
+    text-align: center;
+}
+.expense{
+    text-align: center;
+}
+.expenseFilter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
