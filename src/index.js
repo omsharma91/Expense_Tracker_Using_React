@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import ExpenseContext from "./expenseInput";
+import ExpenseContainer from "./expenseInput";
+import Navbar from "./navbar";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

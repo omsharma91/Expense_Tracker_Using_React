@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExpenseContext } from "./expenseInput";
+import { ExpenseContext } from "./App";
 import { useContext } from "react";
 
 export default function ExpenseFilter() {
@@ -19,7 +19,7 @@ export default function ExpenseFilter() {
       <div className="expenseFilter">
         <h1>Get your expense track</h1>
         <span>Put the date for your transaction history : <input type="date" onChange={handelDate} /></span>
-        <button onClick={getExpenses}>get expenses</button>
+        <button onClick={getExpenses}>Get Transaction history</button>
       </div>
       <table>
         <thead>

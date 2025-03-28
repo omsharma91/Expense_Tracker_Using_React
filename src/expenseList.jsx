@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ExpenseContext } from "./expenseInput";
+import { ExpenseContext } from "./App";
 
 export default function ExpenseList() {
   const { expenses } = useContext(ExpenseContext) || { expenses: [] };

@@ -1,20 +1,16 @@
-import React, { createContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import ExpenseList from "./expenseList";
-import ExpenseTable from "./expenseTable";
-import ExpenseFilter from "./ExpenseFilter";
-import ExpenseTrack from "./expenseTable";
-
-export const ExpenseContext = createContext();
+import { ExpenseContext } from "./App";
 
 export default function ExpenseContainer() {
+  const {expenses,setExpenses} = useContext(ExpenseContext);
   const [formData, setFormData] = useState({
     expenseName: "",
     amount: "",
     type: "Income",
     date: "",
   });
-
-  const [expenses, setExpenses] = useState([]); // Stores all expenses
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,7 +34,7 @@ export default function ExpenseContainer() {
   };
 
   return (
-    <ExpenseContext.Provider value={{ expenses,setExpenses}}>
+    <>
       <form onSubmit={handleSubmit} className="expenseContainer">
         <div className="input">
           <input
@@ -73,8 +69,6 @@ export default function ExpenseContainer() {
         </div>
       </form>
       <ExpenseList />
-      <ExpenseTrack/>
-      <ExpenseFilter/>
-    </ExpenseContext.Provider>
+    </>
   );
 }

@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
-import { ExpenseContext } from "./expenseInput";
-
+import { ExpenseContext } from "./App";
 export default function ExpenseTrack() {
   const { expenses, setExpenses } = useContext(ExpenseContext) || {
     expenses: [],
   };
-  console.log(expenses);
   const [editedId, setEditedId] = useState(null);
   const [editedExpense, setEditedExpense] = useState(null);
   const handelDelete = (id) => {
@@ -16,7 +14,23 @@ export default function ExpenseTrack() {
     setEditedExpense(expenses);
   };
   const handelChange = (e) => {
-    setEditedExpense({ ...editedExpense, [e.target.name]: e.target.value });
+    setEditedExpense((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleSave = () => {
+    setExpenses(
+      expenses.map((expense) =>
+        expense.id === editedId ? editedExpense : expense
+      )
+    );
+    setEditedId(null);
+    setEditedExpense(null);
+  };
+  const handleCancel = () => {
+    setEditedExpense(null);
+    setEditedId(null);
   };
   return (
     <div>
@@ -45,24 +59,59 @@ export default function ExpenseTrack() {
                     expense.date
                   )}
                 </td>
-                <td>{expense.expenseName}</td>
-                <td>{expense.type}</td>
-                <td>{expense.amount}</td>
+
                 <td>
-                  <button
-                    onClick={() => {
-                      handelDelete(expense.id);
-                    }}
-                  >
-                    X
-                  </button>
-                  <button
-                    onClick={() => {
-                      handelEdit(expense);
-                    }}
-                  >
-                    Edit
-                  </button>
+                  {editedId === expense.id ? (
+                    <input
+                      name="expenseName"
+                      value={editedExpense.expenseName}
+                      onChange={handelChange}
+                    />
+                  ) : (
+                    expense.expenseName
+                  )}
+                </td>
+
+                <td>
+                  {editedId === expense.id ? (
+                    <input
+                      name="type"
+                      value={editedExpense.type}
+                      onChange={handelChange}
+                    />
+                  ) : (
+                    expense.type
+                  )}
+                </td>
+                <td>
+                  {editedId === expense.id ? (
+                    <input
+                      name="amount"
+                      value={editedExpense.amount}
+                      onChange={handelChange}
+                    />
+                  ) : (
+                    expense.amount
+                  )}
+                </td>
+                <td>
+                    {editedId === expense.id ? (
+                      <>
+                        <button onClick={handleSave}>save</button>
+                        <button onClick={handleCancel}>Cancel</button>
+                      </>
+                    ) : (
+                      <>
+                        <button onClick={handelEdit}>Edit</button>
+                        <button
+                          onClick={() => {
+                            handelDelete(expense.id);
+                          }}
+                        >
+                          X
+                        </button>
+                      </>
+                    )}
                 </td>
               </tr>
             ))
