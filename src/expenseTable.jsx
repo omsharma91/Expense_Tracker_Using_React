@@ -98,13 +98,15 @@ export default function ExpenseTrack() {
                 </td>
                 <td>
                     {editedId === expense.id ? (
-                      <>
+                      <div className="d-flex flex-row gap-3">
                         <button onClick={handleSave}>save</button>
                         <button onClick={handleCancel}>Cancel</button>
-                      </>
+                      </div>
                     ) : (
                       <div className="d-flex flex-row gap-3">
-                        <button onClick={handelEdit}>✏️ </button>
+                        <button onClick={()=>{
+                          handelEdit(expense)
+                        }}>✏️ </button>
                         <button
                         className='w-25'
                           onClick={() => {
