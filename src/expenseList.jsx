@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ExpenseContext } from "./App";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ExpenseList() {
   const { expenses } = useContext(ExpenseContext) || { expenses: [] };
@@ -25,17 +26,17 @@ export default function ExpenseList() {
   });
 
   return (
-    <div className="container">
+    <div className="container border w-50 mt-2">
       <p>
         <strong>Balance:</strong> <span>{balance}</span>
       </p>
       <div className="record">
         <div className="income">
-          <p><strong>Income</strong></p>
+          <p><strong>Total Income : </strong></p>
           <p>{income}</p>
         </div>
         <div className="expense">
-          <p><strong>Expense</strong></p>
+          <p><strong>Total Expense : </strong></p>
           <p>{expense}</p>
         </div>
       </div>

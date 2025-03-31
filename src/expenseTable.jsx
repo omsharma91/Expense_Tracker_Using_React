@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ExpenseContext } from "./App";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export default function ExpenseTrack() {
   const { expenses, setExpenses } = useContext(ExpenseContext) || {
     expenses: [],
@@ -33,10 +35,10 @@ export default function ExpenseTrack() {
     setEditedId(null);
   };
   return (
-    <div>
+    <div className="border">
       <table>
         <thead>
-          <tr>
+          <tr className='bg-success'>
             <th>Date</th>
             <th>Particular</th>
             <th>Type</th>
@@ -101,16 +103,17 @@ export default function ExpenseTrack() {
                         <button onClick={handleCancel}>Cancel</button>
                       </>
                     ) : (
-                      <>
-                        <button onClick={handelEdit}>Edit</button>
+                      <div className="d-flex flex-row gap-3">
+                        <button onClick={handelEdit}>✏️ </button>
                         <button
+                        className='w-25'
                           onClick={() => {
                             handelDelete(expense.id);
                           }}
                         >
-                          X
+                          ❌
                         </button>
-                      </>
+                      </div>
                     )}
                 </td>
               </tr>

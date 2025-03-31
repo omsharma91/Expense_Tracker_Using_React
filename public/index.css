@@ -5,6 +5,7 @@
 /* styling for navbar */
 .navbar{
     background-color: lightblue;
+    height: 4rem;
 }
 .nav-list{
     display: flex;
@@ -73,4 +74,19 @@ td{
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+.box{
+    width: 30rem;
+}
+.button{
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputwidth{
+    width: 25rem;
+}
+.titleAdd{
+    font-size: 1.5rem;
 }

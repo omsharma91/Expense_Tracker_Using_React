@@ -21,9 +21,9 @@ export default function ExpenseFilter() {
         <span>Put the date for your transaction history : <input type="date" onChange={handelDate} /></span>
         <button onClick={getExpenses}>Get Transaction history</button>
       </div>
-      <table>
+      <table className='border'>
         <thead>
-          <tr>
+          <tr className='bg-success'>
             <th>Date</th>
             <th>Particular</th>
             <th>Type</th>
@@ -49,6 +49,7 @@ export default function ExpenseFilter() {
           )}
         </tbody>
       </table>
+      
     </div>
   );
 }
