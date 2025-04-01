@@ -98,7 +98,9 @@ export default function ExpenseTrack() {
                 </td>
                 <td>
                     {editedId === expense.id ? (
-                      <div className="d-flex flex-row gap-3">
+                      <div className="d-flex flex-row gap-3"
+                      
+                      >
                         <button onClick={handleSave}>save</button>
                         <button onClick={handleCancel}>Cancel</button>
                       </div>
